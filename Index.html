@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhishek Sharma — Project Manager, Localization & Integrated Delivery</title>
+<style>
+  :root{
+    --paper:#EDEAE1;
+    --card:#F8F6F0;
+    --ink:#1E2A26;
+    --ink-soft:#4A554F;
+    --rule:#C9C1AE;
+    --teal:#3F6259;
+    --teal-deep:#2B4640;
+    --brass:#9C6B30;
+    --white:#FFFDF9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size:16px;
+    line-height:1.55;
+  }
+  h1,h2,h3{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-weight:600;
+    margin:0;
+    color:var(--teal-deep);
+  }
+  a{color:var(--teal-deep);}
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
+
+  /* Header / hero */
+  header.hero{
+    padding:72px 0 56px;
+    border-bottom:1px solid var(--rule);
+  }
+  .kicker{
+    font-size:14px;
+    color:var(--ink-soft);
+    letter-spacing:0.02em;
+    margin-bottom:10px;
+  }
+  h1{
+    font-size:44px;
+    line-height:1.12;
+    max-width:14ch;
+  }
+  .role-line{
+    margin-top:14px;
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .contact-row{
+    margin-top:28px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 22px;
+    font-size:14.5px;
+  }
+  .contact-row span{color:var(--ink-soft);}
+  .contact-row a{text-decoration:none; border-bottom:1px solid var(--rule);}
+  .contact-row a:hover{border-color:var(--teal);}
+
+  /* Summary */
+  section.summary{
+    padding:44px 0 8px;
+    border-bottom:1px solid var(--rule);
+  }
+  section.summary p{
+    max-width:68ch;
+    font-size:17px;
+    color:var(--ink);
+  }
+
+  /* Section label */
+  .section-head{
+    padding:52px 0 20px;
+  }
+  .section-head h2{font-size:26px;}
+  .section-head p.deck{
+    margin-top:8px;
+    color:var(--ink-soft);
+    font-size:15px;
+    max-width:56ch;
+  }
+
+  /* Case file cards */
+  .case{
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:2px;
+    margin-bottom:26px;
+    display:grid;
+    grid-template-columns:220px 1fr;
+  }
+  .case-meta{
+    padding:26px 22px;
+    border-right:1px solid var(--rule);
+  }
+  .case-meta .field{margin-bottom:16px;}
+  .case-meta .field:last-child{margin-bottom:0;}
+  .case-meta .field-label{
+    font-size:11px;
+    color:var(--brass);
+    letter-spacing:0.04em;
+    margin-bottom:3px;
+  }
+  .case-meta .field-value{
+    font-size:14.5px;
+    color:var(--ink);
+    font-weight:500;
+  }
+  .case-body{padding:26px 28px 28px;}
+  .case-body h3{font-size:21px; margin-bottom:14px;}
+  .case-body .stack{display:flex; flex-direction:column; gap:14px;}
+  .case-body .row{display:grid; grid-template-columns:96px 1fr; gap:16px;}
+  .case-body .row .label{
+    font-size:13px;
+    color:var(--teal);
+    font-weight:600;
+    padding-top:2px;
+  }
+  .case-body .row .text{font-size:15px; color:var(--ink);}
+
+  @media (max-width: 680px){
+    .case{grid-template-columns:1fr;}
+    .case-meta{border-right:none; border-bottom:1px solid var(--rule); display:flex; flex-wrap:wrap; gap:18px 28px;}
+    .case-meta .field{margin-bottom:0;}
+    .case-body .row{grid-template-columns:1fr;}
+    h1{font-size:34px;}
+  }
+
+  /* Competencies */
+  .comp-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:22px 32px;
+    padding-bottom:8px;
+  }
+  @media (max-width:680px){ .comp-grid{grid-template-columns:1fr;} }
+  .comp-group h4{
+    font-size:13px;
+    color:var(--brass);
+    letter-spacing:0.03em;
+    margin-bottom:8px;
+    font-weight:600;
+  }
+  .comp-group p{margin:0; font-size:14.5px; color:var(--ink-soft);}
+
+  /* Track record */
+  .track{
+    border-top:1px solid var(--rule);
+    padding:44px 0 60px;
+  }
+  .track-row{
+    display:grid;
+    grid-template-columns:220px 1fr 140px;
+    gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid var(--rule);
+    font-size:14.5px;
+    align-items:baseline;
+  }
+  .track-row:first-child{padding-top:0;}
+  .track-row .org{font-weight:600; color:var(--ink);}
+  .track-row .desc{color:var(--ink-soft);}
+  .track-row .dates{color:var(--ink-soft); text-align:right;}
+  @media (max-width:680px){
+    .track-row{grid-template-columns:1fr; gap:4px;}
+    .track-row .dates{text-align:left;}
+  }
+
+  footer{
+    border-top:1px solid var(--rule);
+    padding:36px 0 60px;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  footer a{color:var(--teal-deep);}
+
+  .note{
+    margin-top:6px;
+    font-size:13px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">Portfolio — Project Delivery</div>
+    <h1>Abhishek Sharma</h1>
+    <div class="role-line">Project Manager with 7+ years running end-to-end delivery across localization, broadcast media, and client-facing production — from initial brief through final fulfillment.</div>
+    <div class="contact-row">
+      <span><a href="mailto:abhirg91@gmail.com">abhirg91@gmail.com</a></span>
+      <span>8108950205</span>
+      <span>Mumbai, India</span>
+    </div>
+  </header>
+
+  <section class="summary">
+    <p>I take ownership of integrated localization and creative projects from brief to handover — planning, scheduling, budget control, risk management, and multi-time-zone stakeholder communication. My background runs through corporate, agency, and start-up environments, and spans everything from cross-platform localization programs to broadcast campaign scheduling and vendor coordination.</p>
+  </section>
+
+  <section id="work">
+    <div class="section-head">
+      <h2>Case Files</h2>
+      <p class="deck">A record of how projects were actually run — scope, approach, and what shipped.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-meta">
+        <div class="field">
+          <div class="field-label">CLIENT TYPE</div>
+          <div class="field-value">Global localization & creative</div>
+        </div>
+        <div class="field">
+          <div class="field-label">ROLE</div>
+          <div class="field-value">Associate Project Manager</div>
+        </div>
+        <div class="field">
+          <div class="field-label">ORGANIZATION</div>
+          <div class="field-value">Lionbridge Technologies</div>
+        </div>
+        <div class="field">
+          <div class="field-label">TIMEFRAME</div>
+          <div class="field-value">Oct 2022 – Present</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>End-to-end ownership of multi-format localization programs</h3>
+        <div class="stack">
+          <div class="row">
+            <div class="label">Scope</div>
+            <div class="text">Complex, cross-platform projects spanning digital, print, and multimedia deliverables, each requiring alignment across strategy, account, and creative teams from the initial brief.</div>
+          </div>
+          <div class="row">
+            <div class="label">Approach</div>
+            <div class="text">Built detailed estimates, work plans, and schedules directly with clients to protect critical deadlines. Sourced and scheduled internal resources alongside external LSPs, in-country reviewers, and freelance talent. Coordinated with digital and content producers to unify the skills needed for integrated campaigns, and ran quality checks with linguistic teams to keep messaging accurate and locally relevant.</div>
+          </div>
+          <div class="row">
+            <div class="label">Delivery</div>
+            <div class="text">Kept multi-time-zone stakeholders aligned through Quarterly Business Reviews and regular progress reporting, from internal leadership through to external clients. Verified output — qualitatively and quantitatively — against original objectives before sign-off.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-meta">
+        <div class="field">
+          <div class="field-label">CLIENT TYPE</div>
+          <div class="field-value">Multi-project portfolio</div>
+        </div>
+        <div class="field">
+          <div class="field-label">ROLE</div>
+          <div class="field-value">Associate Project Manager</div>
+        </div>
+        <div class="field">
+          <div class="field-label">ORGANIZATION</div>
+          <div class="field-value">Lionbridge Technologies</div>
+        </div>
+        <div class="field">
+          <div class="field-label">TIMEFRAME</div>
+          <div class="field-value">Oct 2022 – Present</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>Budget, risk, and financial control across concurrent projects</h3>
+        <div class="stack">
+          <div class="row">
+            <div class="label">Scope</div>
+            <div class="text">Full financial ownership across all active projects — raising and updating purchase orders, managing cash flow, and ensuring invoicing accuracy — while keeping stakeholders informed on the cost implications of delays, scope changes, or re-briefs.</div>
+          </div>
+          <div class="row">
+            <div class="label">Approach</div>
+            <div class="text">Identified and qualified project risk early, tracking issues through to resolution rather than reacting to them after the fact. Maintained audit-ready documentation and compliance records throughout, in line with internal policy and external requirements.</div>
+          </div>
+          <div class="row">
+            <div class="label">Delivery</div>
+            <div class="text">Provided regular job and operational income reporting, escalating invoicing or estimate queries early to keep projects on budget and on schedule.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-meta">
+        <div class="field">
+          <div class="field-label">CLIENT TYPE</div>
+          <div class="field-value">Broadcast & media</div>
+        </div>
+        <div class="field">
+          <div class="field-label">ROLE</div>
+          <div class="field-value">Broadcast Executive</div>
+        </div>
+        <div class="field">
+          <div class="field-label">ORGANIZATION</div>
+          <div class="field-value">Naaptol Online Shopping</div>
+        </div>
+        <div class="field">
+          <div class="field-label">TIMEFRAME</div>
+          <div class="field-value">Feb 2018 – May 2022</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>Integrated campaign scheduling across broadcast channels</h3>
+        <div class="stack">
+          <div class="row">
+            <div class="label">Scope</div>
+            <div class="text">Planned and managed product placements and on-air campaigns across multiple broadcast channels — functionally equivalent to managing media schedules across an integrated campaign.</div>
+          </div>
+          <div class="row">
+            <div class="label">Approach</div>
+            <div class="text">Tracked performance against targets and adjusted spot positioning to maximize reach. Reconciled billing and invoices for every TV slot against Release Orders — the same discipline as managing project estimates against client purchase orders. Worked closely with Research, Creative, and Marketing to align campaign direction and deliver coordinated, on-brand output.</div>
+          </div>
+          <div class="row">
+            <div class="label">Delivery</div>
+            <div class="text">Produced weekly and monthly performance reports on commercial results and product analytics to inform planning, and collaborated with sourcing on inventory forecasting to flag supply risk early.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-meta">
+        <div class="field">
+          <div class="field-label">CLIENT TYPE</div>
+          <div class="field-value">Events & vendor coordination</div>
+        </div>
+        <div class="field">
+          <div class="field-label">ROLE</div>
+          <div class="field-value">Merchant Relationship Associate</div>
+        </div>
+        <div class="field">
+          <div class="field-label">ORGANIZATION</div>
+          <div class="field-value">Urban Online Services</div>
+        </div>
+        <div class="field">
+          <div class="field-label">TIMEFRAME</div>
+          <div class="field-value">Mar 2017 – Feb 2018</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>Client-facing event delivery under fixed timelines</h3>
+        <div class="stack">
+          <div class="row">
+            <div class="label">Scope</div>
+            <div class="text">Sole point of contact between clients and banquet managers, owning event execution end-to-end from briefing through delivery.</div>
+          </div>
+          <div class="row">
+            <div class="label">Approach</div>
+            <div class="text">Sourced competitive quotations from banquets, decorators, and catering vendors, managing selection and cost negotiation to protect value without compromising quality.</div>
+          </div>
+          <div class="row">
+            <div class="label">Delivery</div>
+            <div class="text">Built dependable working relationships with external partners through regular check-ins, running multiple concurrent events without missed handoffs.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Core Competencies</h2>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-group">
+        <h4>PROJECT MANAGEMENT</h4>
+        <p>End-to-end delivery, scope definition, planning, timeline & milestone tracking</p>
+      </div>
+      <div class="comp-group">
+        <h4>RISK MANAGEMENT</h4>
+        <p>Risk identification, mitigation strategy, compliance & regulatory adherence</p>
+      </div>
+      <div class="comp-group">
+        <h4>BUDGET & FINANCIAL CONTROL</h4>
+        <p>Budget management, PO processing, invoice oversight, cash flow management</p>
+      </div>
+      <div class="comp-group">
+        <h4>STAKEHOLDER & CLIENT</h4>
+        <p>Stakeholder communication, client relationship management, QBR facilitation</p>
+      </div>
+      <div class="comp-group">
+        <h4>TEAM LEADERSHIP</h4>
+        <p>Cross-functional collaboration, resource allocation, vendor & supplier management</p>
+      </div>
+      <div class="comp-group">
+        <h4>REPORTING & DOCUMENTATION</h4>
+        <p>Deliverables management, quality assurance, process improvement, evaluation</p>
+      </div>
+      <div class="comp-group">
+        <h4>TOOLS</h4>
+        <p>Microsoft Project, Power BI, Google Analytics, Trados, Office 365, Azure, Translation Management System</p>
+      </div>
+      <div class="comp-group">
+        <h4>LANGUAGES</h4>
+        <p>English, Hindi, Marathi</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="track">
+    <div class="section-head" style="padding-top:8px;">
+      <h2>Track Record</h2>
+    </div>
+    <div class="track-row">
+      <div class="org">N.P.I.E — Operations</div>
+      <div class="desc">One Point One Solutions · Daily/weekly/monthly client reporting, cross-team issue resolution, escalation handling</div>
+      <div class="dates">Nov 2013 – May 2016</div>
+    </div>
+    <div class="track-row">
+      <div class="org">Business Development Executive</div>
+      <div class="desc">CSJ Online Services · Product quality reporting, vendor visit coordination, launch planning support</div>
+      <div class="dates">May 2016 – Dec 2016</div>
+    </div>
+    <div class="track-row">
+      <div class="org">Education</div>
+      <div class="desc">B.Com — Pragati College, Mumbai University</div>
+      <div class="dates">2013</div>
+    </div>
+    <div class="track-row">
+      <div class="org">Certifications</div>
+      <div class="desc">Fundamentals of Digital Marketing (Google) · ITES Computer Hardware</div>
+      <div class="dates">2022 · 2008</div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Get in touch — <a href="mailto:abhirg91@gmail.com">abhirg91@gmail.com</a> · 8108950205 · Mumbai, India</div>
+  </footer>
+</div>
+
+</body>
+</html>
